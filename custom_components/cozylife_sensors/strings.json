@@ -1,0 +1,37 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect CozyLife Sensors",
+        "description": "Enter the email and password used by the CozyLife app. For Italy, keep country code 380.",
+        "data": {
+          "email": "Email",
+          "password": "Password",
+          "country_code": "Country code"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to CozyLife.",
+      "invalid_auth": "The CozyLife email or password is incorrect.",
+      "no_devices": "No supported CozyLife temperature sensors were found.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This CozyLife account is already configured."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "temperature": {
+        "name": "Temperature"
+      },
+      "humidity": {
+        "name": "Humidity"
+      },
+      "battery": {
+        "name": "Battery"
+      }
+    }
+  }
+}

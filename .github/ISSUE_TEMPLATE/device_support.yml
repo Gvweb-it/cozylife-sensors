@@ -1,0 +1,32 @@
+name: Device support request
+description: Ask to support or confirm a CozyLife sensor model
+title: "[Device]: "
+labels: ["device-support"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not paste passwords, tokens, device keys, or full raw API responses.
+  - type: input
+    id: product_id
+    attributes:
+      label: Product ID
+      placeholder: "Z4tRml"
+    validations:
+      required: true
+  - type: input
+    id: model_name
+    attributes:
+      label: Model name shown by CozyLife
+      placeholder: "temperature and humidity sensor"
+  - type: input
+    id: chip
+    attributes:
+      label: Firmware chip
+      placeholder: "BL602"
+  - type: textarea
+    id: datapoints
+    attributes:
+      label: Datapoints observed
+      description: If you used tools/cozylife_probe.js, paste only sanitized fields such as product_id, model_name, firmware_chip, and DPID numbers.
+      render: json

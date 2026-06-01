@@ -1,0 +1,7 @@
+{
+  "name": "CozyLife Sensors",
+  "domains": ["sensor"],
+  "homeassistant": "2026.5.0",
+  "iot_class": "Cloud Polling",
+  "render_readme": true
+}

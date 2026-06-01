@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a problem with CozyLife Sensors
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve CozyLife Sensors. Do not paste your password, token, device key, or full raw API response.
+  - type: input
+    id: ha_version
+    attributes:
+      label: Home Assistant version
+      placeholder: "2026.5.4"
+    validations:
+      required: true
+  - type: input
+    id: integration_version
+    attributes:
+      label: Integration version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: product_id
+    attributes:
+      label: CozyLife product ID
+      placeholder: "Z4tRml"
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the issue and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      render: text
+      description: Remove secrets before posting.

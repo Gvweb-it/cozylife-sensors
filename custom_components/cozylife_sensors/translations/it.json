@@ -1,0 +1,37 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connetti sensori CozyLife",
+        "description": "Inserisci email e password usate nell'app CozyLife. Per l'Italia lascia il codice paese 380.",
+        "data": {
+          "email": "Email",
+          "password": "Password",
+          "country_code": "Codice paese"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Connessione a CozyLife non riuscita.",
+      "invalid_auth": "Email o password CozyLife non corretta.",
+      "no_devices": "Nessun sensore temperatura CozyLife supportato trovato.",
+      "unknown": "Errore imprevisto."
+    },
+    "abort": {
+      "already_configured": "Questo account CozyLife e gia configurato."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "temperature": {
+        "name": "Temperatura"
+      },
+      "humidity": {
+        "name": "Umidita"
+      },
+      "battery": {
+        "name": "Batteria"
+      }
+    }
+  }
+}
