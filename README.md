@@ -1,5 +1,8 @@
 # CozyLife Sensors for Home Assistant
 
+[![Open your Home Assistant instance and open this repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Gvweb-it&repository=cozylife-sensors&category=integration)
+[![Open your Home Assistant instance and start setting up this integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=cozylife_sensors)
+
 Custom Home Assistant integration for CozyLife temperature and humidity sensors.
 
 It reads the CozyLife cloud API directly, without routing through SmartThings.
@@ -47,11 +50,11 @@ Country code depends on the account region. Confirmed values:
 
 After this repository is published on GitHub:
 
-1. Open HACS.
-2. Add this repository as a custom repository of type **Integration**.
+1. Click the HACS badge at the top of this README, or open HACS manually.
+2. Add this repository as a custom repository of type **Integration** if needed.
 3. Install **CozyLife Sensors**.
 4. Restart Home Assistant.
-5. Add **CozyLife Sensors** from Settings > Devices & services.
+5. Click the integration badge at the top of this README, or add **CozyLife Sensors** from Settings > Devices & services.
 
 ### Manual
 
