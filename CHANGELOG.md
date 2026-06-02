@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.0
+
+- Add non-sensitive diagnostic attributes for supported datapoints.
+- Expose likely report interval, threshold, and report delta values as entity attributes.
+
 ## 0.1.0
 
 - Initial public release.

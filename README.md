@@ -36,6 +36,10 @@ For each sensor, the integration creates:
 - Humidity
 - Battery
 
+The sensor entities also expose non-sensitive diagnostic attributes when the
+device reports them, such as likely report interval, threshold, and report delta
+datapoints.
+
 ## Configuration
 
 You need the same email and password used by the CozyLife app.

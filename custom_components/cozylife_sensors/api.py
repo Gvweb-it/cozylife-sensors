@@ -48,6 +48,7 @@ class CozyLifeDeviceState:
     humidity: int | None
     battery: float | None
     online: bool
+    diagnostics: dict[str, Any]
     raw: dict[str, Any]
 
 
@@ -162,6 +163,7 @@ class CozyLifeClient:
                 humidity=_as_int(raw_state.get(DPID_HUMIDITY)),
                 battery=_as_float(raw_state.get(DPID_BATTERY), divisor=10),
                 online=bool(raw_state.get("online", device.online)),
+                diagnostics=_decode_diagnostics(raw_state),
                 raw=raw_state,
             )
 
@@ -206,6 +208,46 @@ class CozyLifeClient:
 
 def _looks_like_temperature_sensor(raw_state: dict[str, Any]) -> bool:
     return DPID_TEMPERATURE in raw_state or DPID_HUMIDITY in raw_state
+
+
+def _decode_diagnostics(raw_state: dict[str, Any]) -> dict[str, Any]:
+    """Decode known non-sensitive CozyLife datapoints."""
+    diagnostics: dict[str, Any] = {}
+
+    if (value := _as_int(raw_state.get("14"))) is not None:
+        diagnostics["report_interval_seconds"] = value
+
+    if (value := _as_float(raw_state.get("20"), divisor=10)) is not None:
+        diagnostics["temperature_high_threshold_c"] = value
+
+    if (value := _as_float(raw_state.get("21"), divisor=10)) is not None:
+        diagnostics["temperature_low_threshold_c"] = value
+
+    if (value := _as_int(raw_state.get("22"))) is not None:
+        diagnostics["humidity_high_threshold"] = value
+
+    if (value := _as_int(raw_state.get("23"))) is not None:
+        diagnostics["humidity_low_threshold"] = value
+
+    if (value := _as_float(raw_state.get("24"), divisor=10)) is not None:
+        diagnostics["temperature_report_delta_c"] = value
+
+    if (value := _as_int(raw_state.get("25"))) is not None:
+        diagnostics["humidity_report_delta"] = value
+
+    if (value := _as_int(raw_state.get("12"))) is not None:
+        diagnostics["datapoint_12"] = value
+
+    if (value := _as_int(raw_state.get("13"))) is not None:
+        diagnostics["datapoint_13"] = value
+
+    if (value := _as_int(raw_state.get("26"))) is not None:
+        diagnostics["datapoint_26"] = value
+
+    if (value := raw_state.get("sn")) is not None:
+        diagnostics["last_report_serial"] = str(value)
+
+    return diagnostics
 
 
 def _as_float(value: Any, divisor: int = 1) -> float | None:

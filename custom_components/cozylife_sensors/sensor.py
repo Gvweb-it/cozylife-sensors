@@ -121,3 +121,16 @@ class CozyLifeSensor(CoordinatorEntity[CozyLifeCoordinator], SensorEntity):
             "sw_version": device.firmware_version,
             "hw_version": device.firmware_chip,
         }
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        """Return non-sensitive diagnostic attributes."""
+        state = self._state
+        if state is None:
+            return None
+
+        return {
+            "product_id": state.device.product_id,
+            "model_name": state.device.model_name,
+            **state.diagnostics,
+        }
